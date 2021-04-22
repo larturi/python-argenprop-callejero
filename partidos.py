@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 import json
-import csv
 
 # Listo las provincias para recorrer cada una
 url_provincias = "http://www.inmuebles.clarin.com/Regiones/FindProvincias?contentType=json&idPais=1"
@@ -10,7 +9,6 @@ provincias_res = requests.get(url_provincias, headers=headers).text
 df = pd.read_json(url_provincias)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
-
 id_list = df['Id'].tolist()
 provincia_list = df['Nombre'].tolist()
 
